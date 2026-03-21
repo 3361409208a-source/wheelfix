@@ -63,7 +63,7 @@
 | 🔧 智能过滤 | 🎯 锁定模式 | ⚙️ 自定义设置 |
 |:---:|:---:|:---:|
 | 自动检测抖动，<8ms 方向反转直接过滤 | 锁定一个方向，反方向彻底屏蔽 | 快捷键、阈值全都能改 |
-| 不影响正常滚动 | 鼠标位置弹出绿色箭头提示 | 配置自动保存，重启不丢失 |
+| 不影响正常滚动 | 三种图标颜色区分当前状态 | 配置自动保存，重启不丢失 |
 
 | 🧪 测试页面 | 📌 系统托盘 | 📦 零依赖 |
 |:---:|:---:|:---:|
@@ -88,11 +88,11 @@
 
 ### 快捷键
 
-| 快捷键 | 功能 | 状态栏图标 |
+| 快捷键 | 功能 | 图标 |
 |:---:|:---:|:---:|
-| `F8` | 🔽 锁定向下 | 🟠 |
-| `F9` | 🔼 锁定向上 | 🟠 |
-| `F10` | 🔄 正常模式 | 🟢 |
+| `F8` | 🔽 锁定向下 | 🔴 红色圆 + ⬇ |
+| `F9` | 🔼 锁定向上 | 🔵 蓝色圆 + ⬆ |
+| `F10` | 🔄 正常模式 | 🟢 绿色圆 + ↔ |
 
 > 💡 快捷键可在托盘菜单 → **设置** 中自定义，点击输入框按你想用的键就行
 
@@ -115,12 +115,11 @@
 
 ### 状态指示
 
-| 图标颜色 | 含义 |
+| 图标样式 | 含义 |
 |:---:|:---:|
-| 🟢 绿色 | 正常过滤模式 |
-| 🟠 橙红色 | 锁定模式 |
-
-切换锁定时，鼠标位置会弹出 **绿色圆形箭头**（⬆️ 或 ⬇️），0.8 秒后自动消失。
+| 🟢 绿色圆 + ↔ 双箭头 | 正常过滤模式 |
+| 🔵 蓝色圆 + ⬆ 上箭头 | 锁定向上滚动 |
+| 🔴 红色圆 + ⬇ 下箭头 | 锁定向下滚动 |
 
 ## 📐 工作原理
 
@@ -222,7 +221,7 @@ dotnet publish -c Release
 | 🎯 **Lock Mode** | Lock to one direction, block the opposite completely |
 | ⌨️ **Custom Hotkeys** | Set any key combination you want |
 | 🧪 **Test Page** | Built-in 500-line scroll page to verify the fix |
-| 📌 **System Tray** | Green/red icon, right-click menu |
+| 📌 **System Tray** | 3 distinct icons (green/blue/red), right-click menu |
 | 📦 **Zero Dependencies** | Single 50MB exe, works on any Windows 10/11 PC |
 
 ## 📥 Download
