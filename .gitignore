@@ -4,3 +4,4 @@ obj/
 *.user
 *.suo
 publish/
+publish_test/
