@@ -124,7 +124,7 @@ static class Program
 
         _trayIcon = new NotifyIcon
         {
-            Icon = MakeIcon(Color.LimeGreen),
+            Icon = MakeNormalIcon(),
             Text = "WheelFix [正常]",
             Visible = true,
             ContextMenuStrip = BuildMenu()
@@ -226,17 +226,15 @@ static class Program
     static void UpdateTray()
     {
         if (_trayIcon == null) return;
-        _trayIcon.Icon = MakeIcon(_lockMode ? Color.OrangeRed : Color.LimeGreen);
         if (_lockMode)
         {
-            var dir = _lockDirection > 0 ? "上" : "下";
-            _trayIcon.Text = $"WheelFix [锁定{dir}]";
-            _trayIcon.ShowBalloonTip(1000, "WheelFix", $"已锁定向{dir}滚动", ToolTipIcon.Info);
+            _trayIcon.Icon = MakeLockIcon(_lockDirection > 0);
+            _trayIcon.Text = $"WheelFix [锁定{(_lockDirection > 0 ? "上" : "下")}]";
         }
         else
         {
+            _trayIcon.Icon = MakeNormalIcon();
             _trayIcon.Text = "WheelFix [正常]";
-            _trayIcon.ShowBalloonTip(1000, "WheelFix", "恢复正常过滤模式", ToolTipIcon.Info);
         }
     }
 
@@ -254,17 +252,45 @@ static class Program
         return menu;
     }
 
-    static Icon MakeIcon(Color color)
+    static Icon MakeNormalIcon()
     {
         using var bmp = new Bitmap(16, 16);
         using var g = Graphics.FromImage(bmp);
         g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
         g.Clear(Color.Transparent);
-        using var brush = new SolidBrush(color);
-        g.FillEllipse(brush, 2, 2, 12, 12);
+        using var brush = new SolidBrush(Color.LimeGreen);
+        g.FillEllipse(brush, 3, 3, 10, 10);
+        using var pen = new Pen(Color.White, 1.2f);
+        // 正常模式：双箭头 ↔
+        g.DrawLine(pen, 4, 8, 7, 5);
+        g.DrawLine(pen, 4, 8, 7, 11);
+        g.DrawLine(pen, 9, 8, 12, 5);
+        g.DrawLine(pen, 9, 8, 12, 11);
+        return Icon.FromHandle(bmp.GetHicon());
+    }
+
+    static Icon MakeLockIcon(bool isUp)
+    {
+        using var bmp = new Bitmap(16, 16);
+        using var g = Graphics.FromImage(bmp);
+        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+        g.Clear(Color.Transparent);
+        using var brush = new SolidBrush(isUp ? Color.DeepSkyBlue : Color.OrangeRed);
+        g.FillEllipse(brush, 3, 3, 10, 10);
         using var pen = new Pen(Color.White, 1.5f);
-        g.DrawLine(pen, 8, 3, 8, 13);
-        g.DrawLine(pen, 5, 5, 11, 11);
+        // 箭头
+        if (isUp)
+        {
+            g.DrawLine(pen, 8, 12, 8, 5);
+            g.DrawLine(pen, 5, 8, 8, 5);
+            g.DrawLine(pen, 11, 8, 8, 5);
+        }
+        else
+        {
+            g.DrawLine(pen, 8, 5, 8, 12);
+            g.DrawLine(pen, 5, 9, 8, 12);
+            g.DrawLine(pen, 11, 9, 8, 12);
+        }
         return Icon.FromHandle(bmp.GetHicon());
     }
 }
