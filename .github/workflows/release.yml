@@ -20,9 +20,12 @@ jobs:
           dotnet-version: '10.0.x'
 
       - name: Publish
-        run: dotnet publish -c Release --self-contained false -p:PublishSingleFile=true -p:IncludeNativeLibrariesForSelfExtract=true
+        run: dotnet publish -c Release --self-contained false
+
+      - name: Zip
+        run: Compress-Archive -Path bin/Release/net10.0-windows/publish/* -DestinationPath WheelFix.zip
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: bin/Release/net10.0-windows/win-x64/publish/WheelFix.exe
+          files: WheelFix.zip
