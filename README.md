@@ -96,6 +96,8 @@
 
 > 💡 快捷键可在托盘菜单 → **设置** 中自定义，点击输入框按你想用的键就行
 
+> 💡 **小技巧：** 按住鼠标中键（滚轮按下）再移动鼠标，可以实现**平滑连续滚动**，不受滚轮刻度限制，某些场景比滚轮更好用。
+
 ### 托盘菜单
 
 右下角绿色小圆点 → 右键：
@@ -223,6 +225,8 @@ dotnet publish -c Release
 | 🧪 **Test Page** | Built-in 500-line scroll page to verify the fix |
 | 📌 **System Tray** | 3 distinct icons (green/blue/red), right-click menu |
 | 📦 **Zero Dependencies** | Single 50MB exe, works on any Windows 10/11 PC |
+
+> 💡 **Tip:** Hold mouse middle button (press the scroll wheel) and move the mouse for **smooth continuous scrolling** — works great in many situations, no wheel detents.
 
 ## 📥 Download
 
