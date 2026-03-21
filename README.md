@@ -1,97 +1,165 @@
 <div align="center">
 
-# 🖱️ WheelFix
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,24,12&height=180&section=header&text=WheelFix&fontSize=60&fontColor=fff&animation=fadeIn" />
 
-**鼠标滚轮修复工具 / Mouse wheel jitter fix**
+### 🖱️ 鼠标滚轮修复工具 / Mouse Wheel Jitter Fix
 
-[![GitHub stars](https://img.shields.io/github/stars/3361409208a-source/wheelfix?style=social)](https://github.com/3361409208a-source/wheelfix)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-0078D6.svg)](#)
-[![Release](https://img.shields.io/github/v/release/3361409208a-source/wheelfix)](https://github.com/3361409208a-source/wheelfix/releases)
+**让坏掉的滚轮重获新生 / Bring your broken wheel back to life**
 
-[English](#-english)  |  [中文](#-中文)
+[![GitHub stars](https://img.shields.io/github/stars/3361409208a-source/wheelfix?style=for-the-badge&logo=github&color=green)](https://github.com/3361409208a-source/wheelfix/stargazers)
+[![GitHub forks](https://img.shields.io/github/forks/3361409208a-source/wheelfix?style=for-the-badge&logo=github&color=blue)](https://github.com/3361409208a-source/wheelfix/forks)
+[![GitHub release](https://img.shields.io/github/v/release/3361409208a-source/wheelfix?style=for-the-badge&color=orange)](https://github.com/3361409208a-source/wheelfix/releases)
+[![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge&logo=)](LICENSE)
+[![Platform](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)](#)
 
 ---
 
+[🇺🇸 English](#-english)  ·  [🇨🇳 中文](#-中文)
+
 </div>
 
-## 🇨🇳 中文
+---
 
-### 你的鼠标滚轮是不是也这样？
+<!-- ============================================================ -->
+<!--                        中文部分                               -->
+<!-- ============================================================ -->
 
-向下滚一下，页面却跳回去了。反复上下抖动，根本没法正常用。
+<a id="-中文"></a>
 
-**原因：** 滚轮编码器接触不良，是硬件问题，不是软件问题。
-**方案：** WheelFix 用软件方式过滤抖动，让坏掉的滚轮重新好用。
+<div align="center">
 
-### ✨ 功能
+# 🇨🇳 中文
 
-<table>
-<tr>
-<td width="50%">
+</div>
 
-🔧 **智能过滤**
-自动检测并过滤滚轮抖动
-不影响正常操作
+## 😫 你的鼠标是不是也这样？
 
-🎯 **锁定模式**
-锁定向上或向下
-彻底屏蔽反方向滚动
+```
+↓↓↓↓↓↓↓↓↑↓↓↓↓↓↓↓↓↑↓↓↓↓↓↓↓↓↑↓↓↓
+  向下滚              跳回去了！
+```
 
-</td>
-<td width="50%">
+> 滚轮用久了，滚动页面会**上下乱跳**
+> 本来向下看，突然跳回顶部
+> 写文档、看网页、刷代码，**烦到爆**
 
-⌨️ **自定义快捷键**
-按自己的习惯设置热键
+**根因：** 滚轮编码器磨损，硬件问题，换鼠标要花钱 💸
+**妙招：** WheelFix 用软件过滤抖动，**不花一分钱**修好它 ✨
 
-🧪 **测试页面**
-内置测试页面，验证效果
+## 🚀 一键修复
 
-📌 **系统托盘**
-后台运行，不占桌面
+<div align="center">
 
-</td>
-</tr>
-</table>
+| ![箭头指示](https://img.shields.io/badge/⬇️-切换锁定向下-2ea44f?style=for-the-badge) | ![箭头指示](https://img.shields.io/badge/⬆️-切换锁定向上-2ea44f?style=for-the-badge) | ![箭头指示](https://img.shields.io/badge/🔄-恢复正常模式-8b5cf6?style=for-the-badge) |
+|:---:|:---:|:---:|
+| 按 `F8` | 按 `F9` | 按 `F10` |
 
-### 📥 下载
+</div>
 
-**[前往 Releases 页面下载](https://github.com/3361409208a-source/wheelfix/releases)**
+## ✨ 功能亮点
 
-下载 `WheelFix.exe`，双击即可运行。无需安装 .NET，无需任何依赖。
+<div align="center">
 
-### 🎮 使用
+| 🔧 智能过滤 | 🎯 锁定模式 | ⚙️ 自定义设置 |
+|:---:|:---:|:---:|
+| 自动检测抖动，<8ms 方向反转直接过滤 | 锁定一个方向，反方向彻底屏蔽 | 快捷键、阈值全都能改 |
+| 不影响正常滚动 | 鼠标位置弹出绿色箭头提示 | 配置自动保存，重启不丢失 |
 
-| 快捷键 | 功能 |
-|:------:|------|
-| `F8` | 🔽 锁定向下滚动 |
-| `F9` | 🔼 锁定向上滚动 |
-| `F10` | 🔄 恢复正常模式 |
+| 🧪 测试页面 | 📌 系统托盘 | 📦 零依赖 |
+|:---:|:---:|:---:|
+| 500 行滚动页，当场验证效果 | 后台运行，绿色/红色图标一目了然 | 下载即用，不装 .NET |
+| 浏览器打开，F8/F9 测试 | 右键菜单一键切换 | 单文件 50MB，任何电脑都能跑 |
 
-> 快捷键可在托盘菜单 → 设置 中自定义
+</div>
 
-**托盘菜单**（右键图标）：
-- 切换模式（正常 / 锁定向上 / 锁定向下）
-- 测试滚动
-- 设置
-- 退出
+## 📥 下载安装
 
-### ⚙️ 配置
+<div align="center">
 
-配置保存在 `%AppData%\WheelFix\config.json`：
+### 👇 点这里 👇
+
+[![Download](https://img.shields.io/badge/⬇️_下载_WheelFix_最新版-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/3361409208a-source/wheelfix/releases/latest)
+
+**下载 → 双击 → 搞定。** 三步结束，就这么简单。
+
+</div>
+
+## 🎮 操作指南
+
+### 快捷键
+
+| 快捷键 | 功能 | 状态栏图标 |
+|:---:|:---:|:---:|
+| `F8` | 🔽 锁定向下 | 🟠 |
+| `F9` | 🔼 锁定向上 | 🟠 |
+| `F10` | 🔄 正常模式 | 🟢 |
+
+> 💡 快捷键可在托盘菜单 → **设置** 中自定义，点击输入框按你想用的键就行
+
+### 托盘菜单
+
+右下角绿色小圆点 → 右键：
+
+```
+┌──────────────────┐
+│  正常过滤模式    │  ← 解除锁定
+│  锁定向上        │  ← 只能往上滚
+│  锁定向下        │  ← 只能往下滚
+│──────────────────│
+│  测试滚动        │  ← 打开测试页
+│  设置            │  ← 自定义快捷键
+│──────────────────│
+│  退出            │
+└──────────────────┘
+```
+
+### 状态指示
+
+| 图标颜色 | 含义 |
+|:---:|:---:|
+| 🟢 绿色 | 正常过滤模式 |
+| 🟠 橙红色 | 锁定模式 |
+
+切换锁定时，鼠标位置会弹出 **绿色圆形箭头**（⬆️ 或 ⬇️），0.8 秒后自动消失。
+
+## 📐 工作原理
+
+```
+    🖱️ 鼠标滚轮
+         │
+         ▼
+  ┌──────────────────┐
+  │  全局鼠标钩子     │  ← WH_MOUSE_LL
+  │  捕获滚轮事件     │     拦截所有滚动
+  └────────┬─────────┘
+           │
+           ▼
+  ┌──────────────────┐
+  │  方向分析器       │  ← 记录最近 N 次方向
+  │  抖动检测器       │  ← <8ms 反转 = 抖动
+  └────────┬─────────┘
+           │
+      ┌────┴────┐
+      ▼         ▼
+   ✅ 放行    ❌ 丢弃
+  正常滚动   抖动事件
+  页面滚动    不响应
+```
+
+## ⚙️ 配置文件
+
+位置：`%AppData%\WheelFix\config.json`
 
 ```json
 {
-  "LockDownKey": 119,
-  "LockUpKey": 120,
-  "NormalKey": 121,
-  "FilterThresholdMs": 8
+  "LockDownKey": 119,       // 锁定向下热键 (F8)
+  "LockUpKey": 120,         // 锁定向上热键 (F9)
+  "NormalKey": 121,         // 正常模式热键 (F10)
+  "FilterThresholdMs": 8    // 抖动阈值(毫秒)，越小越严格
 }
 ```
 
-`FilterThresholdMs` — 抖动过滤阈值（毫秒），值越小过滤越严格，推荐 `5-15`
-
-### 🔧 编译
+## 🔧 从源码编译
 
 ```bash
 git clone https://github.com/3361409208a-source/wheelfix.git
@@ -99,111 +167,91 @@ cd wheelfix
 dotnet publish -c Release
 ```
 
-需要 [.NET 10 SDK](https://dotnet.microsoft.com/download)。
+需要 [.NET 10 SDK](https://dotnet.microsoft.com/download)。输出文件在 `bin/Release/.../publish/` 下。
 
-### 📐 原理
-
-```
-鼠标滚轮事件
-    │
-    ▼
-┌─────────────────┐
-│  全局鼠标钩子    │  WH_MOUSE_LL
-│  监听滚轮事件    │  WM_MOUSEWHEEL
-└────────┬────────┘
-         │
-         ▼
-┌─────────────────┐
-│  方向判断        │  记录最近滚动方向
-│  抖动检测        │  <8ms 方向反转 = 抖动
-└────────┬────────┘
-         │
-    ┌────┴────┐
-    ▼         ▼
-  放行       丢弃
- 正常滚动   抖动事件
-```
-
-### 💻 系统要求
-
-| 项目 | 要求 |
-|------|------|
-| 系统 | Windows 10 / 11（64位） |
-| 依赖 | 无，下载即用 |
-| 权限 | 管理员（安装钩子需要） |
-| 大小 | ~50MB |
-
----
+## 💻 系统要求
 
 <div align="center">
 
-## 🇺🇸 English
+| 系统 | Windows 10 / 11（64 位） |
+|:---:|:---:|
+| 依赖 | **无**，下载即用 |
+| 权限 | 管理员（安装钩子需要） |
+| 大小 | ~50MB |
 
 </div>
 
-### Is your mouse wheel doing this?
+---
 
-You scroll down, but the page jumps back up. Jittering up and down, unusable.
+<!-- ============================================================ -->
+<!--                        English                                -->
+<!-- ============================================================ -->
 
-**Cause:** The wheel encoder has worn-out contacts. It's a hardware issue.
-**Solution:** WheelFix filters out the jitter in software, making your broken wheel work again.
+<a id="-english"></a>
 
-### ✨ Features
+<div align="center">
 
-<table>
-<tr>
-<td width="50%">
+# 🇺🇸 English
 
-🔧 **Smart Filtering**
-Automatically detects and filters wheel jitter
-Doesn't affect normal scrolling
+</div>
 
-🎯 **Lock Mode**
-Lock scrolling to one direction
-Completely blocks the opposite direction
+## 😫 Is your mouse wheel doing this?
 
-</td>
-<td width="50%">
+> You scroll down, the page jumps back up.
+> Jittering up and down, completely unusable.
+> Writing, reading, coding — **infuriating.**
 
-⌨️ **Custom Hotkeys**
-Set your own keyboard shortcuts
+**Root cause:** Worn wheel encoder contacts. Hardware failure.
+**Solution:** WheelFix filters jitter in software. **Free fix.** ✨
 
-🧪 **Test Page**
-Built-in test page to verify the fix
+## 🚀 One-Click Fix
 
-📌 **System Tray**
-Runs silently in the background
+<div align="center">
 
-</td>
-</tr>
-</table>
+| `F8` | `F9` | `F10` |
+|:---:|:---:|:---:|
+| 🔽 Lock Down | 🔼 Lock Up | 🔄 Normal |
 
-### 📥 Download
+</div>
 
-**[Go to Releases page](https://github.com/3361409208a-source/wheelfix/releases)**
+## ✨ Features
 
-Download `WheelFix.exe` and double-click to run. No .NET installation required.
-
-### 🎮 Usage
-
-| Hotkey | Action |
-|:------:|--------|
-| `F8` | 🔽 Lock scroll down |
-| `F9` | 🔼 Lock scroll up |
-| `F10` | 🔄 Normal mode |
-
-> Customize hotkeys in tray menu → Settings
-
-### 💻 Requirements
-
-| | |
+| Feature | Description |
 |---|---|
+| 🔧 **Smart Filter** | Auto-detects jitter, filters <8ms direction reversals |
+| 🎯 **Lock Mode** | Lock to one direction, block the opposite completely |
+| ⌨️ **Custom Hotkeys** | Set any key combination you want |
+| 🧪 **Test Page** | Built-in 500-line scroll page to verify the fix |
+| 📌 **System Tray** | Green/red icon, right-click menu |
+| 📦 **Zero Dependencies** | Single 50MB exe, works on any Windows 10/11 PC |
+
+## 📥 Download
+
+[![Download](https://img.shields.io/badge/⬇️_Download_WheelFix-000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/3361409208a-source/wheelfix/releases/latest)
+
+**Download → Double-click → Done.** That's it.
+
+## 💻 Requirements
+
 | OS | Windows 10 / 11 (64-bit) |
-| Dependencies | None |
+|---|---|
+| Dependencies | **None** |
 | Size | ~50MB |
+| Admin | Yes (for hook installation) |
 
 ---
 
 ## 📄 License
 
+<div align="center">
+
 [MIT](LICENSE)
+
+---
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,24,12&height=100&section=footer" />
+
+**如果这个项目帮到了你，点个 ⭐ Star 支持一下！**
+**If this project helped you, give it a ⭐ Star!**
+
+</div>
