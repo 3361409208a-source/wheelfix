@@ -91,8 +91,8 @@ static class Program
     static int _sameDirCount = 0;
     static long _lastTick = 0;
 
-    static bool _lockMode = false;
-    static int _lockDirection = -1;
+    static volatile bool _lockMode = false;
+    static volatile int _lockDirection = -1;
     static NotifyIcon? _trayIcon;
     static MessageWindow? _msgWindow;
     static Config _config = Config.Load();
@@ -214,7 +214,6 @@ static class Program
         _lockMode = true; _lockDirection = dir;
         _dominantDir = 0; _sameDirCount = 0;
         UpdateTray();
-        ArrowOverlay.Show(dir > 0);
     }
 
     static void SetNormal()
@@ -222,16 +221,23 @@ static class Program
         _lockMode = false;
         _dominantDir = 0; _sameDirCount = 0;
         UpdateTray();
-        ArrowOverlay.Show(null);
     }
 
     static void UpdateTray()
     {
         if (_trayIcon == null) return;
         _trayIcon.Icon = MakeIcon(_lockMode ? Color.OrangeRed : Color.LimeGreen);
-        _trayIcon.Text = _lockMode
-            ? $"WheelFix [锁定{(_lockDirection > 0 ? "上" : "下")}]"
-            : "WheelFix [正常]";
+        if (_lockMode)
+        {
+            var dir = _lockDirection > 0 ? "上" : "下";
+            _trayIcon.Text = $"WheelFix [锁定{dir}]";
+            _trayIcon.ShowBalloonTip(1000, "WheelFix", $"已锁定向{dir}滚动", ToolTipIcon.Info);
+        }
+        else
+        {
+            _trayIcon.Text = "WheelFix [正常]";
+            _trayIcon.ShowBalloonTip(1000, "WheelFix", "恢复正常过滤模式", ToolTipIcon.Info);
+        }
     }
 
     static ContextMenuStrip BuildMenu()
@@ -408,68 +414,3 @@ static class TestPage
     }
 }
 
-// ==================== 方向箭头指示器 ====================
-class ArrowOverlay : Form
-{
-    private static ArrowOverlay? _instance;
-    private static System.Windows.Forms.Timer? _fadeTimer;
-    private readonly bool _isUp;
-
-    public static void Show(bool? direction)
-    {
-        _instance?.Close();
-        _fadeTimer?.Stop();
-        _fadeTimer?.Dispose();
-
-        if (direction == null) return;
-
-        _instance = new ArrowOverlay(direction.Value);
-        _instance.Show();
-
-        _fadeTimer = new System.Windows.Forms.Timer { Interval = 800 };
-        _fadeTimer.Tick += (_, _) =>
-        {
-            _fadeTimer?.Stop();
-            _instance?.Close();
-            _instance = null;
-        };
-        _fadeTimer.Start();
-    }
-
-    ArrowOverlay(bool isUp)
-    {
-        _isUp = isUp;
-        FormBorderStyle = FormBorderStyle.None;
-        ShowInTaskbar = false;
-        TopMost = true;
-        StartPosition = FormStartPosition.Manual;
-        Size = new Size(80, 80);
-        BackColor = Color.Black;
-        TransparencyKey = Color.Black;
-
-        var pos = Cursor.Position;
-        Location = new Point(pos.X - 40, pos.Y - 40);
-    }
-
-    protected override void OnPaint(PaintEventArgs e)
-    {
-        base.OnPaint(e);
-        var g = e.Graphics;
-        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-
-        using var brush = new SolidBrush(Color.LimeGreen);
-        using var pen = new Pen(Color.White, 2);
-
-        // 画圆圈背景
-        g.FillEllipse(brush, 10, 10, 60, 60);
-        g.DrawEllipse(pen, 10, 10, 60, 60);
-
-        // 画箭头
-        var arrowPoints = _isUp
-            ? new[] { new PointF(40, 20), new PointF(25, 48), new PointF(55, 48) }  // 向上
-            : new[] { new PointF(40, 60), new PointF(25, 32), new PointF(55, 32) }; // 向下
-
-        using var arrowBrush = new SolidBrush(Color.White);
-        g.FillPolygon(arrowBrush, arrowPoints);
-    }
-}
