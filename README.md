@@ -82,8 +82,8 @@ dotnet publish -c Release --self-contained false -p:PublishSingleFile=true
 
 ### 系统要求
 
-- Windows 10 / 11
-- .NET 10 运行时（或使用自包含发布）
+- Windows 10 / 11（64位）
+- 无需安装 .NET 运行时，下载即用
 
 ---
 
@@ -163,8 +163,8 @@ The exe will be in `bin/Release/net10.0-windows/win-x64/publish/`.
 
 ### System requirements
 
-- Windows 10 / 11
-- .NET 10 runtime (or use self-contained publish)
+- Windows 10 / 11 (64-bit)
+- No .NET installation needed — download and run
 
 ---
 
