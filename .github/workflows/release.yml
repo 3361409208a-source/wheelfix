@@ -19,10 +19,20 @@ jobs:
         with:
           dotnet-version: '10.0.x'
 
-      - name: Publish
+      - name: Publish (Self-Contained)
         run: dotnet publish -c Release
+
+      - name: Publish (Framework-Dependent)
+        run: dotnet publish -c Release --self-contained false -o bin/Release/publish-fd
+
+      - name: Rename files
+        run: |
+          mv bin/Release/net10.0-windows/win-x64/publish/WheelFix.exe bin/Release/net10.0-windows/win-x64/publish/WheelFix-self-contained.exe
+          mv bin/Release/publish-fd/WheelFix.exe bin/Release/publish-fd/WheelFix.exe
 
       - name: Upload to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: bin/Release/net10.0-windows/win-x64/publish/WheelFix.exe
+          files: |
+            bin/Release/net10.0-windows/win-x64/publish/WheelFix-self-contained.exe
+            bin/Release/publish-fd/WheelFix.exe
